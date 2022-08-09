@@ -6,7 +6,7 @@ function HookMouse() {
   const [y, setY] = useState(0);
 
   const logMousePosition = (e) => {
-    console.log("Mouse event");
+    console.log("Mouse event after logging out");
     setX(e.clientX);
     setY(e.clientY);
   };
@@ -14,6 +14,11 @@ function HookMouse() {
   useEffect(() => {
     console.log("use effect called");
     window.addEventListener("mousemove", logMousePosition);
+
+    return () => {
+      console.log("mouse moved");
+      window.removeEventListener("mousemove", logMousePosition);
+    };
   }, []);
 
   return (

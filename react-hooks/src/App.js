@@ -1,6 +1,7 @@
 import "./App.css";
 // import HookCounter from "./Components/HookCounter";
-import HookMouse from "./Components/HookMouse";
+// import HookMouse from "./Components/HookMouse";
+import MouseContainer from "./Components/MouseContainer";
 // import Counterarray from "./Components/Counterarray";
 // import Counter from "./Components/Counter";
 // import CounterObject from "./CounterObject";
@@ -12,7 +13,8 @@ function App() {
       {/* <CounterObject /> */}
       {/* <Counterarray /> */}
       {/* <HookCounter /> */}
-      <HookMouse />
+      {/* <HookMouse /> */}
+      <MouseContainer />
     </div>
   );
 }
