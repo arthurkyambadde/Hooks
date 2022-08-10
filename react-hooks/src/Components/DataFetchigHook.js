@@ -2,27 +2,33 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 function DataFetchigHook() {
-  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState({});
+  const [id, setId] = useState(1);
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => {
-        console.log(response);
-        setPosts(response.data);
-      })
+      .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .then(
+        (response) => {
+          console.log(response);
+          setPost(response.data);
+        },
+        [id]
+      )
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div>
-      <ul>
+      <input type={"text"} value={id} onChange={(e) => setId(e.target.value)} />
+      {post.title}
+      {/* <ul>
         {posts.map((post) => {
           return <li key={post.id}>{post.title}</li>;
         })}
-      </ul>
+      </ul> */}
     </div>
   );
 }
