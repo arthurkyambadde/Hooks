@@ -1,5 +1,6 @@
 import "./App.css";
-import DataFetchigHook from "./Components/DataFetchigHook";
+import ReducerCounter from "./ReducerCounter";
+// import DataFetchigHook from "./Components/DataFetchigHook";
 // import IntervalHookCounter from "./Components/IntervalHookCounter";
 // import HookCounter from "./Components/HookCounter";
 // import HookMouse from "./Components/HookMouse";
@@ -18,7 +19,8 @@ function App() {
       {/* <HookMouse /> */}
       {/* <MouseContainer /> */}
       {/* <IntervalHookCounter /> */}
-      <DataFetchigHook />
+      {/* <DataFetchigHook /> */}
+      <ReducerCounter />
     </div>
   );
 }
