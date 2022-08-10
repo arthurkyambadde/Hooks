@@ -4,24 +4,30 @@ import React, { useEffect, useState } from "react";
 function DataFetchigHook() {
   const [post, setPost] = useState({});
   const [id, setId] = useState(1);
+  const [idOnClick, setIdOnClick] = useState(1);
 
   useEffect(() => {
     axios
-      .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .get(`https://jsonplaceholder.typicode.com/posts/${idOnClick}`)
       .then(
         (response) => {
           console.log(response);
           setPost(response.data);
         },
-        [id]
+        [idOnClick]
       )
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [idOnClick]);
+
+  const handleClick = () => {
+    setIdOnClick(id);
+  };
 
   return (
     <div>
+      <button onClick={handleClick}>fetch post</button>
       <input type={"text"} value={id} onChange={(e) => setId(e.target.value)} />
       {post.title}
       {/* <ul>
