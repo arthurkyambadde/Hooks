@@ -1,5 +1,6 @@
 import "./App.css";
 import ReducerHookCounters from "./Components/ReducerHookCounters";
+// import ReducerHookCounters from "./Components/ReducerHookCounters";
 // import ReducerCounter from "./ReducerCounter";
 // import DataFetchigHook from "./Components/DataFetchigHook";
 // import IntervalHookCounter from "./Components/IntervalHookCounter";

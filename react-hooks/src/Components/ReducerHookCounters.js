@@ -7,15 +7,46 @@ const initialState = {
   error: "",
 };
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_SUCCESFUL":
+      return {
+        isLoading: false,
+        posts: action.payload,
+        error: "",
+      };
+
+    case "FETCH_ERROR":
+      return {
+        isLoading: false,
+        posts: {},
+        error: "somethimg went wrong",
+      };
+
+    default:
+      return state;
+  }
+};
+
 function ReducerHookCounters() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/todos/1")
+      .get("https://jsonplaceholder.typicode.com/posts/1")
       .then((response) => {
-        console.log(response.data);
+        dispatch({ type: "FETCH_SUCCESS", payload: response.data });
+      })
+      .catch((error) => {
+        dispatch({ type: "FETCH_ERROR" });
       });
-  });
-  return <div>ReducersHookCounters</div>;
+  }, []);
+  return (
+    <div>
+      {state.isloading ? "Loading........" : state.posts.title}
+      {state.error ? state.error : null}
+    </div>
+  );
 }
 
 export default ReducerHookCounters;
