@@ -1,5 +1,6 @@
 import "./App.css";
-import ReducerHookCounters from "./Components/ReducerHookCounters";
+import ReducerHookFetch from "./Components/ReducerHookFetch";
+// import ReducerHookCounters from "./Components/ReducerHookFetch";
 // import ReducerHookCounters from "./Components/ReducerHookCounters";
 // import ReducerCounter from "./ReducerCounter";
 // import DataFetchigHook from "./Components/DataFetchigHook";
@@ -23,7 +24,8 @@ function App() {
       {/* <IntervalHookCounter /> */}
       {/* <DataFetchigHook /> */}
       {/* <ReducerCounter /> */}
-      <ReducerHookCounters />
+      {/* <ReducerHookCounters /> */}
+      <ReducerHookFetch />
     </div>
   );
 }
